@@ -1,0 +1,29 @@
+# c1= Churrasco('Churras dos Amigos',15)
+# considerando 400g por pessoa e a carne custa 82,40/KG
+from rich import print
+from rich.panel import Panel
+
+
+class Churrasco:
+    def __init__(self, titulo='', quant_pessoas=0):
+        self.titulo = titulo
+        self.pessoas = quant_pessoas
+
+    def analisar(self):
+        quant_carne_porpessoa = 0.4
+        quant_carne = self.pessoas * quant_carne_porpessoa
+        preço_carne = 82.40
+        preço_totalcarne = quant_carne*preço_carne
+        custototalporpessoa = preço_totalcarne/self.pessoas
+        print(
+            f'O {self.titulo} tem {self.pessoas} convidados, vai precisar de {quant_carne:,.2f}KG de carne, valor total de R$ {preço_carne:,.2f}')
+        conteudo = f'Analisando o [green]{self.titulo}[/] com [blue]{self.pessoas} convidados[/]' + "\n"
+        conteudo += f'Cada participante come {quant_carne_porpessoa}g e cada KG de carne custa R${preço_carne:,.2f}'+"\n"
+        conteudo += f'Recomendo comprar [green]{quant_carne}KG[/] de carne'+"\n"
+        conteudo += f'O custo total por pessoa é de [green]R${custototalporpessoa}[/]'
+        etiqueta = Panel(conteudo, title='Calculadora de Churrasco')
+        print(etiqueta)
+
+
+c1 = Churrasco('Churras dos Amigos', 15)
+c1.analisar()
