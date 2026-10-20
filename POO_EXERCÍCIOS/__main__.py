@@ -1,6 +1,7 @@
 from rich import print,inspect
 from EX_04_Heranca_cursoemvideo import Aluno, Professor, Funcionario
 
+
 a1=Aluno('camilla',25,'engenharia de software','t01')
 a1.fazer_aniversario()
 inspect(a1)
